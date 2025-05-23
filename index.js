@@ -1,5 +1,6 @@
 import { engine } from 'express-handlebars';
 import express from 'express';
+import Handlebars from 'handlebars';
 import axios from 'axios';
 import { stringify } from 'csv-stringify/sync';
 import fs from 'fs';
@@ -7,7 +8,7 @@ import fs from 'fs';
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON requests
+// Handlebars engine setup
 app.engine('handlebars', engine({
     helpers: {
         formatDate: (date) => new Date(date).toLocaleDateString(),
@@ -16,43 +17,74 @@ app.engine('handlebars', engine({
             if (typeof number !== 'number') return number;
             return number.toFixed(decimals);
         },
-        eq: function (a, b) {
-            return a === b;
+        eq: (a, b) => a === b,
+        max: (arr) => Math.max(...arr),
+        min: (arr) => Math.min(...arr),
+        sum: (arr) => arr.reduce((a, b) => a + b, 0),
+        pluck: function (array, property) {
+            return array.map(function (item) {
+                return item[property];
+            });
         },
+        currentYear: () => new Date().getFullYear()
     }
-})); app.set('view engine', 'handlebars');
+}));
+Handlebars.registerHelper('max', function (arr) {
+    return Math.max(...arr);
+});
+
+Handlebars.registerHelper('min', function (arr) {
+    return Math.min(...arr);
+});
+
+Handlebars.registerHelper('formatNumber', function (value, decimals) {
+    return parseFloat(value).toFixed(decimals);
+});
+Handlebars.registerHelper('sum', function (arr) {
+    return arr.reduce((a, b) => a + b, 0);
+});
+app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 // Middleware
 app.use(express.json());
-app.use(express.static('public')); // for serving static files like CSS, JS
+app.use(express.static('public'));
 
+// Date range calculation
+const calculateDateRange = (offsetDays, offsetMonths, offsetYears) => {
+    const today = new Date();
+    const endDate = new Date(today);
+    const startDate = new Date(today);
 
+    if (offsetDays) endDate.setDate(endDate.getDate() + offsetDays);
+    if (offsetMonths) startDate.setMonth(startDate.getMonth() + offsetMonths);
+    if (offsetYears) startDate.setFullYear(startDate.getFullYear() + offsetYears);
 
-app.get('/weather', async (req, res) => {
+    return { startDate, endDate };
+};
+
+const formatDate = (date) => date.toISOString().slice(0, 10);
+
+// Query parsing middleware
+const parseQueryWithDefaults = (defaultRange) => (req, res, next) => {
+    const { startDate, endDate } = calculateDateRange(...defaultRange);
+    req.query.start_date = req.query.start_date || formatDate(startDate);
+    req.query.end_date = req.query.end_date || formatDate(endDate);
+    next();
+};
+
+// Apply query parsing middleware
+app.use('/api/weather', parseQueryWithDefaults([-2, -2, 0]));
+app.use('/weather', parseQueryWithDefaults([-2, -2, 0]));
+app.use('/weather/download', parseQueryWithDefaults([-2, -2, 0]));
+
+// Weather page route
+app.get(['/weather', '/'], async (req, res) => {
     try {
-        const today = new Date();
-        const endDateObj = new Date(today);
-        endDateObj.setDate(endDateObj.getDate() - 1);
-
-        const startDateObj = new Date(today);
-        startDateObj.setFullYear(startDateObj.getFullYear() - 1); // Default to 1 year data
-
-        const formatDate = (date) => date.toISOString().slice(0, 10);
-
-        const query = {
-            start_date: formatDate(startDateObj),
-            end_date: formatDate(endDateObj),
-            view: 'monthly' // default view
-        };
-
-        const { start_date, end_date, view } = { ...query, ...req.query };
+        const { start_date, end_date, view } = req.query;
         const weatherData = await fetchWeatherData(start_date, end_date);
-
-        // Process data based on view type
         const processedData = processDataForView(weatherData.weatherData, view);
 
-        // Prepare chart data
         const chartData = {
             labels: processedData.map(item => item.label),
             temperatureMax: processedData.map(item => item.temperature_max),
@@ -67,12 +99,11 @@ app.get('/weather', async (req, res) => {
             title: 'Islamabad Weather Data',
             metadata: weatherData.metadata,
             weatherData: processedData,
-            chartData: chartData,
+            chartData,
             currentView: view,
             startDate: start_date,
             endDate: end_date
         });
-
     } catch (error) {
         res.status(500).render('error', {
             message: 'Failed to fetch weather data',
@@ -81,22 +112,40 @@ app.get('/weather', async (req, res) => {
     }
 });
 
-app.get('/api/weather/daterange', async (req, res) => {
+// Weather data API
+app.get('/api/weather', async (req, res) => {
     try {
-        const today = new Date();
-        const earliestDate = new Date();
-        earliestDate.setFullYear(earliestDate.getFullYear() - 10); // 10 years back
-        
-        res.json({
-            minDate: earliestDate.toISOString().split('T')[0],
-            maxDate: today.toISOString().split('T')[0]
-        });
+        const { start_date, end_date } = req.query;
+        const weatherData = await fetchWeatherData(start_date, end_date);
+        res.json(weatherData);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({
+            error: 'Failed to fetch weather data',
+            details: error.message
+        });
     }
 });
 
-// Data processing helper
+// Download weather data as CSV
+app.get('/weather/download', async (req, res) => {
+    try {
+        const { start_date, end_date, view } = req.query;
+        const weatherData = await fetchWeatherData(start_date, end_date);
+        const processedData = processDataForView(weatherData.weatherData, view);
+        const csvData = convertFilteredDataToCSV(processedData, view);
+
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', `attachment; filename=weather_${view}_${start_date}_to_${end_date}.csv`);
+        res.send(csvData);
+    } catch (error) {
+        res.status(500).render('error', {
+            message: 'Failed to generate CSV download',
+            error: error.message
+        });
+    }
+});
+
+// Data processing helpers
 function processDataForView(data, view) {
     switch (view) {
         case 'daily':
@@ -104,76 +153,76 @@ function processDataForView(data, view) {
                 label: day.date,
                 ...day
             }));
-
         case 'weekly':
-            const weeklyData = [];
-            for (let i = 0; i < data.length; i += 7) {
-                const weekSlice = data.slice(i, i + 7);
-                weeklyData.push({
-                    label: `Week ${Math.floor(i / 7) + 1} (${weekSlice[0].date} - ${weekSlice[weekSlice.length - 1].date})`,
-                    temperature_max: average(weekSlice.map(d => d.temperature_max)),
-                    temperature_min: average(weekSlice.map(d => d.temperature_min)),
-                    humidity: average(weekSlice.map(d => d.humidity)),
-                    pressure: average(weekSlice.map(d => d.pressure)),
-                    precipitation: sum(weekSlice.map(d => d.precipitation)),
-                    wind_speed: max(weekSlice.map(d => d.wind_speed))
-                });
-            }
-            return weeklyData;
-
+            return getWeeklyData(data);
         case 'monthly':
-            const monthlyData = [];
-            const months = {};
-
-            data.forEach(day => {
-                const monthKey = day.date.substring(0, 7); // YYYY-MM
-                if (!months[monthKey]) {
-                    months[monthKey] = [];
-                }
-                months[monthKey].push(day);
-            });
-
-            for (const [month, days] of Object.entries(months)) {
-                monthlyData.push({
-                    label: new Date(`${month}-01`).toLocaleString('default', { month: 'long', year: 'numeric' }),
-                    temperature_max: average(days.map(d => d.temperature_max)),
-                    temperature_min: average(days.map(d => d.temperature_min)),
-                    humidity: average(days.map(d => d.humidity)),
-                    pressure: average(days.map(d => d.pressure)),
-                    precipitation: sum(days.map(d => d.precipitation)),
-                    wind_speed: max(days.map(d => d.wind_speed))
-                });
-            }
-            return monthlyData;
-
+            return getMonthlyData(data);
         case 'yearly':
-            const yearlyData = [];
-            const years = {};
-
-            data.forEach(day => {
-                const yearKey = day.date.substring(0, 4); // YYYY
-                if (!years[yearKey]) {
-                    years[yearKey] = [];
-                }
-                years[yearKey].push(day);
-            });
-
-            for (const [year, days] of Object.entries(years)) {
-                yearlyData.push({
-                    label: year,
-                    temperature_max: average(days.map(d => d.temperature_max)),
-                    temperature_min: average(days.map(d => d.temperature_min)),
-                    humidity: average(days.map(d => d.humidity)),
-                    pressure: average(days.map(d => d.pressure)),
-                    precipitation: sum(days.map(d => d.precipitation)),
-                    wind_speed: max(days.map(d => d.wind_speed))
-                });
-            }
-            return yearlyData;
-
+            return getYearlyData(data);
         default:
             return data;
     }
+}
+
+function getWeeklyData(data) {
+    const weeklyData = [];
+    for (let i = 0; i < data.length; i += 7) {
+        const weekSlice = data.slice(i, i + 7);
+        weeklyData.push({
+            label: `Week ${Math.floor(i / 7) + 1} (${weekSlice[0].date} - ${weekSlice[weekSlice.length - 1].date})`,
+            temperature_max: average(weekSlice.map(d => d.temperature_max)),
+            temperature_min: average(weekSlice.map(d => d.temperature_min)),
+            humidity: average(weekSlice.map(d => d.humidity)),
+            pressure: average(weekSlice.map(d => d.pressure)),
+            precipitation: sum(weekSlice.map(d => d.precipitation)),
+            wind_speed: max(weekSlice.map(d => d.wind_speed))
+        });
+    }
+    return weeklyData;
+}
+
+function getMonthlyData(data) {
+    const monthlyData = [];
+    const months = {};
+    data.forEach(day => {
+        const monthKey = day.date.substring(0, 7);
+        if (!months[monthKey]) months[monthKey] = [];
+        months[monthKey].push(day);
+    });
+    for (const [month, days] of Object.entries(months)) {
+        monthlyData.push({
+            label: new Date(`${month}-01`).toLocaleString('default', { month: 'long', year: 'numeric' }),
+            temperature_max: average(days.map(d => d.temperature_max)),
+            temperature_min: average(days.map(d => d.temperature_min)),
+            humidity: average(days.map(d => d.humidity)),
+            pressure: average(days.map(d => d.pressure)),
+            precipitation: sum(days.map(d => d.precipitation)),
+            wind_speed: max(days.map(d => d.wind_speed))
+        });
+    }
+    return monthlyData;
+}
+
+function getYearlyData(data) {
+    const yearlyData = [];
+    const years = {};
+    data.forEach(day => {
+        const yearKey = day.date.substring(0, 4);
+        if (!years[yearKey]) years[yearKey] = [];
+        years[yearKey].push(day);
+    });
+    for (const [year, days] of Object.entries(years)) {
+        yearlyData.push({
+            label: year,
+            temperature_max: average(days.map(d => d.temperature_max)),
+            temperature_min: average(days.map(d => d.temperature_min)),
+            humidity: average(days.map(d => d.humidity)),
+            pressure: average(days.map(d => d.pressure)),
+            precipitation: sum(days.map(d => d.precipitation)),
+            wind_speed: max(days.map(d => d.wind_speed))
+        });
+    }
+    return yearlyData;
 }
 
 // Math helpers
@@ -189,86 +238,7 @@ function max(arr) {
     return Math.max(...arr);
 }
 
-
-/**
- * Route to get weather data in JSON format
- * GET /api/weather?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD
- */
-app.get('/api/weather', async (req, res) => {
-    try {
-        const today = new Date();
-        const endDateObj = new Date(today);
-        endDateObj.setDate(endDateObj.getDate() - 2);
-
-        const startDateObj = new Date(today);
-        startDateObj.setMonth(startDateObj.getMonth() - 2);
-
-        const formatDate = (date) => date.toISOString().slice(0, 10);
-
-        const query = {
-            start_date: formatDate(startDateObj),
-            end_date: formatDate(endDateObj)
-        };
-        const { start_date, end_date } = { ...query, ...req.query };
-        console.log('Query parameters:', req.query);
-
-        const weatherData = await fetchWeatherData(start_date, end_date);
-        res.json(weatherData);
-        console.log('Weather data fetched successfully:');
-    } catch (error) {
-        res.status(500).json({
-            error: 'Failed to fetch weather data',
-            details: error.message
-        });
-    }
-});
-
-/**
- * Route to download weather data in CSV or JSON format
- * GET /api/weather/download?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&format=csv|json
- */
-
-app.get('/weather/download', async (req, res) => {
-    try {
-        const today = new Date();
-        const endDateObj = new Date(today);
-        endDateObj.setDate(endDateObj.getDate() - 2);
-
-        const startDateObj = new Date(today);
-        startDateObj.setMonth(startDateObj.getMonth() - 2);
-
-        const formatDate = (date) => date.toISOString().slice(0, 10);
-
-        const query = {
-            start_date: formatDate(startDateObj),
-            end_date: formatDate(endDateObj)
-        };
-        const { start_date, end_date, view } = { ...query, ...req.query };
-        console.log('Query parameters:', req.query);
-
-        const weatherData = await fetchWeatherData(start_date, end_date);
-
-        // Process data based on view type (same as the display route)
-        const processedData = processDataForView(weatherData.weatherData, view);
-
-        // Convert to CSV format
-        const csvData = convertFilteredDataToCSV(processedData, view);
-
-        // Set headers for download
-        res.setHeader('Content-Type', 'text/csv');
-        res.setHeader('Content-Disposition', `attachment; filename=weather_${view}_${start_date}_to_${end_date}.csv`);
-        res.send(csvData);
-
-    } catch (error) {
-        res.status(500).render('error', {
-            message: 'Failed to generate CSV download',
-            error: error.message
-        });
-    }
-});
-
-
-// Helper function to convert filtered data to CSV
+// Convert data to CSV
 function convertFilteredDataToCSV(data, viewType) {
     const headers = [
         'Period',
@@ -279,7 +249,6 @@ function convertFilteredDataToCSV(data, viewType) {
         'Precipitation (mm)',
         'Wind Speed (km/h)'
     ];
-
     const rows = data.map(item => [
         item.label,
         item.temperature_max.toFixed(1),
@@ -289,16 +258,10 @@ function convertFilteredDataToCSV(data, viewType) {
         item.precipitation.toFixed(1),
         item.wind_speed.toFixed(1)
     ]);
-
     return stringify([headers, ...rows]);
 }
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-
-// Helper functions
+// Fetch and format weather data
 async function fetchWeatherData(start_date, end_date) {
     const url = "https://archive-api.open-meteo.com/v1/archive";
     const params = {
@@ -309,7 +272,6 @@ async function fetchWeatherData(start_date, end_date) {
         daily: "temperature_2m_max,temperature_2m_min,precipitation_sum,relative_humidity_2m_mean,pressure_msl_mean,wind_speed_10m_max",
         timezone: "auto"
     };
-
     const response = await axios.get(url, { params });
     return formatWeatherData(response.data);
 }
@@ -340,3 +302,8 @@ function formatWeatherData(rawData) {
         }))
     };
 }
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});

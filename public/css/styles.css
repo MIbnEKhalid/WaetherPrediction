@@ -1,5 +1,6 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #181a1b;
+    color: #f1f1f1;
     padding-top: 20px;
 }
 
@@ -7,20 +8,36 @@ body {
     position: relative;
     height: 300px;
     margin-bottom: 20px;
+    background-color: #23272b;
+    border-radius: 8px;
 }
 
 .weather-card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    background-color: #23272b;
+    color: #f1f1f1;
+    border: none;
 }
 
 .card-header {
     font-weight: 600;
+    background-color: #181a1b;
+    color: #f1f1f1;
+    border-bottom: 1px solid #343a40;
 }
 
 .table-responsive {
     max-height: 400px;
     overflow-y: auto;
+    background-color: #23272b;
+    border-radius: 8px;
 }
+
+.table-responsive table {
+    color: #f1f1f1;
+    background-color: #23272b;
+}
+ 
 
 /* Custom scrollbar for table */
 .table-responsive::-webkit-scrollbar {
@@ -29,12 +46,25 @@ body {
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-    background-color: #adb5bd;
+    background-color: #343a40;
     border-radius: 4px;
 }
 
 .table-responsive::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: #23272b;
+}
+
+.table-responsive table {
+    color: #f1f1f1;
+    background-color: #181a1b;
+    /* Changed to match body black theme */
+}
+
+.table-responsive th,
+.table-responsive td {
+    background-color: #181a1b;
+    color: #c2c2c2;
+    border-color: #343a40;
 }
 
 /* Responsive adjustments */
@@ -43,4 +73,3 @@ body {
         height: 250px;
     }
 }
-

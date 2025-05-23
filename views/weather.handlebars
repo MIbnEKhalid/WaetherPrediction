@@ -1,56 +1,152 @@
-<div class="card weather-card mb-4">
-    <div class="card-header bg-primary text-white">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2 class="mb-0">Weather Data for {{metadata.location}}</h2>
-            <div class="btn-group" role="group">
+<div class="card weather-card mb-4 border-0">
+    <div class="card-header bg-primary text-white py-3">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+            <div class="mb-3 mb-md-0">
+                <h2 class="h4 mb-1">
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    Weather Data for {{metadata.location}}
+                </h2>
+            </div>
+
+            <div class="btn-group btn-group-sm" role="group">
                 <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=daily"
-                    class="btn btn-sm {{#eq currentView 'daily'}}btn-light{{else}}btn-outline-light{{/eq}}">Daily</a>
+                    class="btn {{#eq currentView 'daily'}}btn-light{{else}}btn-outline-light{{/eq}}">
+                    <i class="fas fa-calendar-day me-1"></i> Daily
+                </a>
                 <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=weekly"
-                    class="btn btn-sm {{#eq currentView 'weekly'}}btn-light{{else}}btn-outline-light{{/eq}}">Weekly</a>
+                    class="btn {{#eq currentView 'weekly'}}btn-light{{else}}btn-outline-light{{/eq}}">
+                    <i class="fas fa-calendar-week me-1"></i> Weekly
+                </a>
                 <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=monthly"
-                    class="btn btn-sm {{#eq currentView 'monthly'}}btn-light{{else}}btn-outline-light{{/eq}}">Monthly</a>
+                    class="btn {{#eq currentView 'monthly'}}btn-light{{else}}btn-outline-light{{/eq}}">
+                    <i class="fas fa-calendar-alt me-1"></i> Monthly
+                </a>
                 <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=yearly"
-                    class="btn btn-sm {{#eq currentView 'yearly'}}btn-light{{else}}btn-outline-light{{/eq}}">Yearly</a>
+                    class="btn {{#eq currentView 'yearly'}}btn-light{{else}}btn-outline-light{{/eq}}">
+                    <i class="fas fa-calendar me-1"></i> Yearly
+                </a>
             </div>
         </div>
     </div>
+
     <div class="card-body">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-md-6">
-                <p><strong>Date Range:</strong> {{metadata.dateRange.start}} to {{metadata.dateRange.end}}</p>
-                <p><strong>Coordinates:</strong> {{metadata.coordinates.latitude}}°N,
-                    {{metadata.coordinates.longitude}}°E</p>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-info-circle text-primary me-2"></i>
+                    <p class="mb-0"><strong>Date Range:</strong> {{metadata.dateRange.start}} to
+                        {{metadata.dateRange.end}}</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-map-marked-alt text-primary me-2"></i>
+                    <p class="mb-0"><strong>Coordinates:</strong> {{metadata.coordinates.latitude}}°N,
+                        {{metadata.coordinates.longitude}}°E</p>
+                </div>
             </div>
             <div class="col-md-6">
-                <p><strong>Elevation:</strong> {{metadata.elevation}} meters</p>
-                <p><strong>Timezone:</strong> {{metadata.timezone}}</p>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-mountain text-primary me-2"></i>
+                    <p class="mb-0"><strong>Elevation:</strong> {{metadata.elevation}} meters</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-clock text-primary me-2"></i>
+                    <p class="mb-0"><strong>Timezone:</strong> {{metadata.timezone}}</p>
+                </div>
             </div>
         </div>
 
-        <div class="alert alert-info mt-3">
-            <strong>Viewing:</strong> {{currentView}} data ({{weatherData.length}} records)
+        <div class="alert alert-info d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-chart-line me-2"></i>
+                <strong>Viewing:</strong> {{currentView}} data ({{weatherData.length}} records)
+            </div>
+            <a href="/weather/download?start_date={{startDate}}&end_date={{endDate}}&view={{currentView}}"
+                class="btn btn-sm btn-success">
+                <i class="fas fa-download me-1"></i> Download CSV
+            </a>
         </div>
     </div>
 </div>
 
+<!-- Summary Statistics -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="stat-card bg-light">
+            <div class="weather-icon text-danger">
+                <i class="fas fa-temperature-high"></i>
+            </div>
+            <div class="stat-value">
+                {{#with (lookup weatherData 0)}}
+                {{formatNumber (max (pluck ../weatherData 'temperature_max')) 1}}°C
+                {{/with}}
+            </div>
+            <div class="stat-label">Max Temperature</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card bg-light">
+            <div class="weather-icon text-info">
+                <i class="fas fa-temperature-low"></i>
+            </div>
+            <div class="stat-value">
+                {{#with (lookup weatherData 0)}}
+                {{formatNumber (min (pluck ../weatherData 'temperature_min')) 1}}°C
+                {{/with}}
+            </div>
+            <div class="stat-label">Min Temperature</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card bg-light">
+            <div class="weather-icon text-success">
+                <i class="fas fa-tint"></i>
+            </div>
+            <div class="stat-value">
+                {{#with (lookup weatherData 0)}}
+                {{formatNumber (sum (pluck ../weatherData 'precipitation')) 1}}mm
+                {{/with}}
+            </div>
+            <div class="stat-label">Total Precipitation</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card bg-light">
+            <div class="weather-icon text-warning">
+                <i class="fas fa-wind"></i>
+            </div>
+            <div class="stat-value">
+                {{#with (lookup weatherData 0)}}
+                {{formatNumber (max (pluck ../weatherData 'wind_speed')) 1}} km/h
+                {{/with}}
+            </div>
+            <div class="stat-label">Max Wind Speed</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Section -->
 <div class="row mb-4">
     <div class="col-md-6">
-        <div class="chart-container card">
+        <div class="card h-100" style="background-color: var(--dark-surface);">
             <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0">Temperature Trends</h5>
+                <h5 class="mb-0"><i class="fas fa-thermometer-half me-2"></i>Temperature Trends</h5>
             </div>
             <div class="card-body">
-                <canvas id="temperatureChart"></canvas>
+                <div class="chart-container">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="chart-container card">
+        <div class="card h-100">
             <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0">Precipitation</h5>
+                <h5 class="mb-0"><i class="fas fa-cloud-rain me-2"></i>Precipitation</h5>
             </div>
             <div class="card-body">
-                <canvas id="precipitationChart"></canvas>
+                <div class="chart-container">
+                    <canvas id="precipitationChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -58,46 +154,56 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="chart-container card">
+        <div class="card h-100">
             <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0">Humidity</h5>
+                <h5 class="mb-0"><i class="fas fa-tint me-2"></i>Humidity</h5>
             </div>
             <div class="card-body">
-                <canvas id="humidityChart"></canvas>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="chart-container card">
+        <div class="card h-100">
             <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0">Wind Speed</h5>
+                <h5 class="mb-0"><i class="fas fa-wind me-2"></i>Wind Speed</h5>
             </div>
             <div class="card-body">
-                <canvas id="windSpeedChart"></canvas>
+                <div class="chart-container">
+                    <canvas id="windSpeedChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Data Table -->
 <div class="card mt-4">
-    <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">Raw Data ({{currentView}})</h5>
-        <a href="/weather/download?start_date={{startDate}}&end_date={{endDate}}&view={{currentView}}"
-            class="btn btn-sm btn-success">
-            <i class="fas fa-download"></i> Download CSV
-        </a>
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="fas fa-table me-2"></i>Raw Data ({{currentView}})</h5>
+        <div>
+            <a href="/weather/download?start_date={{startDate}}&end_date={{endDate}}&view={{currentView}}"
+                class="btn btn-sm btn-success me-2">
+                <i class="fas fa-download me-1"></i> CSV
+            </a>
+            <button class="btn btn-sm btn-light" onclick="window.print()">
+                <i class="fas fa-print me-1"></i> Print
+            </button>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped table-hover">
-                <thead>
+                <thead class="table-light">
                     <tr>
-                        <th>Period</th>
-                        <th>Max Temp (°C)</th>
-                        <th>Min Temp (°C)</th>
-                        <th>Humidity (%)</th>
-                        <th>Precip (mm)</th>
-                        <th>Wind (km/h)</th>
+                        <th><i class="fas fa-calendar me-1"></i> Period</th>
+                        <th><i class="fas fa-temperature-high me-1"></i> Max Temp (°C)</th>
+                        <th><i class="fas fa-temperature-low me-1"></i> Min Temp (°C)</th>
+                        <th><i class="fas fa-tint me-1"></i> Humidity (%)</th>
+                        <th><i class="fas fa-cloud-rain me-1"></i> Precip (mm)</th>
+                        <th><i class="fas fa-wind me-1"></i> Wind (km/h)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -119,4 +225,5 @@
 
 <script>
     window.chartData = {{{ json chartData }}};
+    window.currentYear = new Date().getFullYear();
 </script>
