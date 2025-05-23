@@ -1,0 +1,2033 @@
+{
+  "metadata": {
+    "location": "Islamabad, Pakistan",
+    "coordinates": {
+      "latitude": 33.70826,
+      "longitude": 72.89441
+    },
+    "elevation": 554,
+    "timezone": "Asia/Karachi",
+    "dateRange": {
+      "start": "2025-03-01",
+      "end": "2025-05-23"
+    }
+  },
+  "weatherData": [
+    {
+      "date": "2025-03-01",
+      "temperature": {
+        "max": 19.4,
+        "min": 8.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 63,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1016.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.3,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-02",
+      "temperature": {
+        "max": 20.4,
+        "min": 8.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 53,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.4,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 12,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-03",
+      "temperature": {
+        "max": 13.2,
+        "min": 8.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 87,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 40,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 29.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-04",
+      "temperature": {
+        "max": 16.4,
+        "min": 6.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 64,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1016.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.4,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 18.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-05",
+      "temperature": {
+        "max": 19.5,
+        "min": 6.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 49,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1016.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-06",
+      "temperature": {
+        "max": 21.4,
+        "min": 10.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 41,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-07",
+      "temperature": {
+        "max": 22.9,
+        "min": 14.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 37,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1011.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-08",
+      "temperature": {
+        "max": 23.1,
+        "min": 11.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 41,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-09",
+      "temperature": {
+        "max": 25.5,
+        "min": 15,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 38,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-10",
+      "temperature": {
+        "max": 20.1,
+        "min": 14.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 63,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1018.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 10.2,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 18.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-11",
+      "temperature": {
+        "max": 23.1,
+        "min": 10.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 65,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1017.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-12",
+      "temperature": {
+        "max": 22.7,
+        "min": 13.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 72,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 4.7,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-13",
+      "temperature": {
+        "max": 21.1,
+        "min": 12.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 66,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 5.4,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-14",
+      "temperature": {
+        "max": 18.4,
+        "min": 12.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 68,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 3.8,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 17.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-15",
+      "temperature": {
+        "max": 19.7,
+        "min": 11.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 72,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.3,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.7,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-16",
+      "temperature": {
+        "max": 22.1,
+        "min": 11.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 63,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.2,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-17",
+      "temperature": {
+        "max": 24.3,
+        "min": 13.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 48,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 9.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-18",
+      "temperature": {
+        "max": 25.2,
+        "min": 14.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 44,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1013.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 10.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-19",
+      "temperature": {
+        "max": 25.7,
+        "min": 15.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 47,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.5,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-20",
+      "temperature": {
+        "max": 25.2,
+        "min": 14.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 39,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1017.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-21",
+      "temperature": {
+        "max": 26.5,
+        "min": 15.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 34,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1015.3,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-22",
+      "temperature": {
+        "max": 29.4,
+        "min": 15.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 20,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1013.3,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 12.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-23",
+      "temperature": {
+        "max": 29.9,
+        "min": 19,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 27,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-24",
+      "temperature": {
+        "max": 28.5,
+        "min": 20.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 35,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 10.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-25",
+      "temperature": {
+        "max": 29.2,
+        "min": 18,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 41,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1010.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.1,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-26",
+      "temperature": {
+        "max": 27,
+        "min": 14.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 52,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.9,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-27",
+      "temperature": {
+        "max": 24.4,
+        "min": 13.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 64,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.3,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-28",
+      "temperature": {
+        "max": 21.5,
+        "min": 11,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 43,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1011.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.8,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "temperature": {
+        "max": 24.3,
+        "min": 11.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 33,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1013.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-30",
+      "temperature": {
+        "max": 26.8,
+        "min": 13.8,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 29,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1011.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 19.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "temperature": {
+        "max": 28.4,
+        "min": 15.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 23,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-01",
+      "temperature": {
+        "max": 29.1,
+        "min": 16.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 21,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1010.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-02",
+      "temperature": {
+        "max": 30.7,
+        "min": 16.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 20,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1011.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-03",
+      "temperature": {
+        "max": 23.8,
+        "min": 14.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 37,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1015.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 23.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-04",
+      "temperature": {
+        "max": 28.6,
+        "min": 14.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 39,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1014.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 17.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-05",
+      "temperature": {
+        "max": 31.2,
+        "min": 17.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 28,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-06",
+      "temperature": {
+        "max": 33.6,
+        "min": 18.8,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 25,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 17.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-07",
+      "temperature": {
+        "max": 35.9,
+        "min": 23.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 28,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1008.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-08",
+      "temperature": {
+        "max": 32.7,
+        "min": 22.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 37,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1012.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 3.6,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 24.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-09",
+      "temperature": {
+        "max": 35.1,
+        "min": 20.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 37,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1010.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.5,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 26.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-10",
+      "temperature": {
+        "max": 31.8,
+        "min": 20.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 42,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1005.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 2.5,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 26.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-11",
+      "temperature": {
+        "max": 28.4,
+        "min": 18.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 43,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1005.3,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-12",
+      "temperature": {
+        "max": 31.4,
+        "min": 17.1,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 36,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 9.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-13",
+      "temperature": {
+        "max": 33.4,
+        "min": 20.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 35,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-14",
+      "temperature": {
+        "max": 35.8,
+        "min": 21.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 32,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-15",
+      "temperature": {
+        "max": 36,
+        "min": 24.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 32,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1008.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 18.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-16",
+      "temperature": {
+        "max": 34.1,
+        "min": 21.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 39,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1008.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.4,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 19.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-17",
+      "temperature": {
+        "max": 33.2,
+        "min": 20.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 43,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-18",
+      "temperature": {
+        "max": 33.7,
+        "min": 20.1,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 44,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1003.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 3.7,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 27.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-19",
+      "temperature": {
+        "max": 28.9,
+        "min": 19,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 58,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1003.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 2.5,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 27.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-20",
+      "temperature": {
+        "max": 26.5,
+        "min": 16,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 54,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1005.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.2,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-21",
+      "temperature": {
+        "max": 32.2,
+        "min": 15.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 38,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-22",
+      "temperature": {
+        "max": 33.1,
+        "min": 19.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 25,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1010.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-23",
+      "temperature": {
+        "max": 33.4,
+        "min": 18.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 21,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-24",
+      "temperature": {
+        "max": 34.1,
+        "min": 19.6,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 21,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 16.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-25",
+      "temperature": {
+        "max": 35.4,
+        "min": 19.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 18,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-26",
+      "temperature": {
+        "max": 34.5,
+        "min": 20,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 18,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 21.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-27",
+      "temperature": {
+        "max": 36.2,
+        "min": 20.2,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 19,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-28",
+      "temperature": {
+        "max": 38.1,
+        "min": 22.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 16,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.7,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-29",
+      "temperature": {
+        "max": 38.5,
+        "min": 24.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 18,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 21,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-04-30",
+      "temperature": {
+        "max": 37.5,
+        "min": 26.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 27,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-01",
+      "temperature": {
+        "max": 34,
+        "min": 25,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 38,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 24.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-02",
+      "temperature": {
+        "max": 31.9,
+        "min": 21.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 59,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 7.3,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 31.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-03",
+      "temperature": {
+        "max": 29.1,
+        "min": 20.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 54,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 2.8,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 10.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "temperature": {
+        "max": 29.9,
+        "min": 21.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 51,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.8,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-05",
+      "temperature": {
+        "max": 30.7,
+        "min": 20.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 57,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.3,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 1.2,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 20.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-06",
+      "temperature": {
+        "max": 31.2,
+        "min": 21.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 50,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1006.8,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.2,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-07",
+      "temperature": {
+        "max": 31.9,
+        "min": 23.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 46,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1005.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.3,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 11,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-08",
+      "temperature": {
+        "max": 30.3,
+        "min": 22.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 58,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.1,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 2.5,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 30.3,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-09",
+      "temperature": {
+        "max": 29.1,
+        "min": 21.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 62,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1009.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.3,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 21.5,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-10",
+      "temperature": {
+        "max": 34.5,
+        "min": 21.8,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 45,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1007.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.6,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 21.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-11",
+      "temperature": {
+        "max": 34.1,
+        "min": 23.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 37,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1005.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-12",
+      "temperature": {
+        "max": 33.1,
+        "min": 22.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 40,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0.4,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-13",
+      "temperature": {
+        "max": 35.5,
+        "min": 22.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 30,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 13.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-14",
+      "temperature": {
+        "max": 37.5,
+        "min": 24.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 25,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1004.4,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-15",
+      "temperature": {
+        "max": 39,
+        "min": 24.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 21,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1003.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.2,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-16",
+      "temperature": {
+        "max": 40.5,
+        "min": 27.3,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 20,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1001.9,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 9.4,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-17",
+      "temperature": {
+        "max": 40.8,
+        "min": 27.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 19,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1001.2,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 15,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-18",
+      "temperature": {
+        "max": 41.8,
+        "min": 28.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 20,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1000.7,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 17.9,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-19",
+      "temperature": {
+        "max": 38.8,
+        "min": 28.5,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 24,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1001.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-20",
+      "temperature": {
+        "max": 40.4,
+        "min": 27.7,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 20,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 1000.5,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.8,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-21",
+      "temperature": {
+        "max": 42.2,
+        "min": 26.9,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": 21,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": 999.6,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": 0,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 14.6,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-22",
+      "temperature": {
+        "max": 30.6,
+        "min": 29.4,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": null,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": null,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": null,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": 9.1,
+        "unit": "km/h"
+      }
+    },
+    {
+      "date": "2025-05-23",
+      "temperature": {
+        "max": null,
+        "min": null,
+        "unit": "°C"
+      },
+      "humidity": {
+        "mean": null,
+        "unit": "%"
+      },
+      "pressure": {
+        "mean": null,
+        "unit": "hPa"
+      },
+      "precipitation": {
+        "sum": null,
+        "unit": "mm"
+      },
+      "wind": {
+        "max_speed": null,
+        "unit": "km/h"
+      }
+    }
+  ]
+}
