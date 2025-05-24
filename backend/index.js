@@ -104,10 +104,12 @@ router.use('/weather', parseQueryWithDefaults([-2, -2, 0]));
 router.use('/weather/download', parseQueryWithDefaults([-2, -2, 0]));
 
 // Weather page route
-router.get(['/weather', '/'], async (req, res) => {
+app.get(['/weather', '/'], async (req, res) => {
   try {
-    const { start_date, end_date, view } = req.query;
-    const weatherData = await fetchWeatherData(start_date, end_date);
+    const { start_date, end_date, view, location = "33.6995,73.0363" } = req.query;
+    const [latitude, longitude] = location.split(',').map(Number);
+
+    const weatherData = await fetchWeatherData(start_date, end_date, latitude, longitude);
     const processedData = processDataForView(weatherData.weatherData, view);
 
     const chartData = {
@@ -121,28 +123,29 @@ router.get(['/weather', '/'], async (req, res) => {
     };
 
     res.render('weather', {
-      title: 'Islamabad Weather Data',
+      title: `${weatherData.metadata.location} Weather Data`,
       metadata: weatherData.metadata,
       weatherData: processedData,
       chartData,
       currentView: view,
       startDate: start_date,
-      endDate: end_date
+      endDate: end_date,
+      location: location
     });
   } catch (error) {
-    console.error('Error fetching weather data:', error);
     res.status(500).render('error', {
-      message: `Failed to fetch weather data ${error.message} `,
+      message: 'Failed to fetch weather data',
       error: error.message
     });
   }
 });
 
 // Weather data API
-router.get('/api/weather', async (req, res) => {
+app.get('/api/weather', async (req, res) => {
   try {
-    const { start_date, end_date } = req.query;
-    const weatherData = await fetchWeatherData(start_date, end_date);
+    const { start_date, end_date, location = "33.6995,73.0363" } = req.query;
+    const [latitude, longitude] = location.split(',').map(Number);
+    const weatherData = await fetchWeatherData(start_date, end_date, latitude, longitude);
     res.json(weatherData);
   } catch (error) {
     res.status(500).json({
@@ -153,10 +156,11 @@ router.get('/api/weather', async (req, res) => {
 });
 
 // Download weather data as CSV
-router.get('/weather/download', async (req, res) => {
+app.get('/weather/download', async (req, res) => {
   try {
-    const { start_date, end_date, view } = req.query;
-    const weatherData = await fetchWeatherData(start_date, end_date);
+    const { start_date, end_date, view, location = "33.6995,73.0363" } = req.query;
+    const [latitude, longitude] = location.split(',').map(Number);
+    const weatherData = await fetchWeatherData(start_date, end_date, latitude, longitude);
     const processedData = processDataForView(weatherData.weatherData, view);
     const csvData = convertFilteredDataToCSV(processedData, view);
 
@@ -288,24 +292,36 @@ function convertFilteredDataToCSV(data, viewType) {
 }
 
 // Fetch and format weather data
-async function fetchWeatherData(start_date, end_date) {
+async function fetchWeatherData(start_date, end_date, latitude = 33.6995, longitude = 73.0363) {
   const url = "https://archive-api.open-meteo.com/v1/archive";
   const params = {
-    latitude: 33.6995,
-    longitude: 73.0363,
+    latitude,
+    longitude,
     start_date,
     end_date,
     daily: "temperature_2m_max,temperature_2m_min,precipitation_sum,relative_humidity_2m_mean,pressure_msl_mean,wind_speed_10m_max",
     timezone: "auto"
   };
   const response = await axios.get(url, { params });
-  return formatWeatherData(response.data);
+  return formatWeatherData(response.data, latitude, longitude);
 }
 
-function formatWeatherData(rawData) {
+
+// Update formatWeatherData function with location name mapping
+function formatWeatherData(rawData, latitude, longitude) {
+  const locationMap = {
+    '33.6995,73.0363': 'Islamabad, Pakistan',
+    '24.8607,67.0011': 'Karachi, Pakistan',
+    '31.5204,74.3587': 'Lahore, Pakistan',
+    '34.0150,71.5805': 'Peshawar, Pakistan',
+    '30.1978,71.4711': 'Multan, Pakistan'
+  };
+
+  const locationKey = `${latitude},${longitude}`;
+
   return {
     metadata: {
-      location: "Islamabad, Pakistan",
+      location: locationMap[locationKey] || `Location (${latitude}, ${longitude})`,
       coordinates: {
         latitude: rawData.latitude,
         longitude: rawData.longitude

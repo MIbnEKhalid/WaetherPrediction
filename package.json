@@ -1,7 +1,7 @@
 {
   "name": "nodejstemplate",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend/index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",

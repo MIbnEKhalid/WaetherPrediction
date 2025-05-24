@@ -9,19 +9,19 @@
             </div>
 
             <div class="btn-group btn-group-sm" role="group">
-                <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=daily"
+                <a href="/weather?location={{location}}&start_date={{startDate}}&end_date={{endDate}}&view=daily"
                     class="btn {{#eq currentView 'daily'}}btn-light{{else}}btn-outline-light{{/eq}}">
                     <i class="fas fa-calendar-day me-1"></i> Daily
                 </a>
-                <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=weekly"
+                <a href="/weather?location={{location}}&start_date={{startDate}}&end_date={{endDate}}&view=weekly"
                     class="btn {{#eq currentView 'weekly'}}btn-light{{else}}btn-outline-light{{/eq}}">
                     <i class="fas fa-calendar-week me-1"></i> Weekly
                 </a>
-                <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=monthly"
+                <a href="/weather?location={{location}}&start_date={{startDate}}&end_date={{endDate}}&view=monthly"
                     class="btn {{#eq currentView 'monthly'}}btn-light{{else}}btn-outline-light{{/eq}}">
                     <i class="fas fa-calendar-alt me-1"></i> Monthly
                 </a>
-                <a href="/weather?start_date={{startDate}}&end_date={{endDate}}&view=yearly"
+                <a href="/weather?location={{location}}&start_date={{startDate}}&end_date={{endDate}}&view=yearly"
                     class="btn {{#eq currentView 'yearly'}}btn-light{{else}}btn-outline-light{{/eq}}">
                     <i class="fas fa-calendar me-1"></i> Yearly
                 </a>
