@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import Handlebars from "handlebars";
+import { stringify } from 'csv-stringify/sync';
 import minifyHTML from "express-minify-html";
 import minify from "express-minify";
 import compression from "compression";
@@ -309,19 +310,12 @@ async function fetchWeatherData(start_date, end_date, latitude = 33.6995, longit
 
 // Update formatWeatherData function with location name mapping
 function formatWeatherData(rawData, latitude, longitude) {
-  const locationMap = {
-    '33.6995,73.0363': 'Islamabad, Pakistan',
-    '24.8607,67.0011': 'Karachi, Pakistan',
-    '31.5204,74.3587': 'Lahore, Pakistan',
-    '34.0150,71.5805': 'Peshawar, Pakistan',
-    '30.1978,71.4711': 'Multan, Pakistan'
-  };
 
   const locationKey = `${latitude},${longitude}`;
 
   return {
     metadata: {
-      location: locationMap[locationKey] || `Location (${latitude}, ${longitude})`,
+      location: `Location (${latitude}, ${longitude})`,
       coordinates: {
         latitude: rawData.latitude,
         longitude: rawData.longitude
@@ -349,7 +343,7 @@ function formatWeatherData(rawData, latitude, longitude) {
 
 
 
-const port = 3030;
+const port = 2030;
 
 // Start the router
 router.listen(port, () => {
